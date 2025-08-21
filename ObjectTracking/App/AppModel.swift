@@ -1,11 +1,12 @@
 //
 //  AppModel.swift
-//  ARSurgery
+//  ObjectTracking
 //
-//  Created by Barath Balamurugan on 21/08/25.
+//  Created by Barath Balamurugan on 19/08/25.
 //
 
 import SwiftUI
+import RealityKit
 
 /// Maintains app-wide state
 @MainActor
@@ -18,4 +19,7 @@ class AppModel {
         case open
     }
     var immersiveSpaceState = ImmersiveSpaceState.closed
+    
+    
+    let spatialTrackingSession = SpatialTrackingSession()
 }
