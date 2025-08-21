@@ -25,6 +25,7 @@
 		7A245DEB2E5792D500FE081B /* ObjectAnchorVisualization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectAnchorVisualization.swift; sourceTree = "<group>"; };
 		7A245DED2E5792E400FE081B /* Entity+ObjectTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+ObjectTracking.swift"; sourceTree = "<group>"; };
 		7A245DEF2E57940100FE081B /* VoiceCommandManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCommandManager.swift; sourceTree = "<group>"; };
+		7A245E252E579EC300FE081B /* USDZModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USDZModelManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +83,8 @@
 		7A245DE22E57927100FE081B /* VoiceCommand */ = {
 			isa = PBXGroup;
 			children = (
-				7A245DEF2E57940100FE081B /* VoiceCommandManager.swift */,
+				7A245E242E579EBA00FE081B /* Model */,
+				7A245E232E579EB200FE081B /* Voice */,
 			);
 			path = VoiceCommand;
 			sourceTree = "<group>";
@@ -120,6 +122,22 @@
 				7A245DED2E5792E400FE081B /* Entity+ObjectTracking.swift */,
 			);
 			path = Extentions;
+			sourceTree = "<group>";
+		};
+		7A245E232E579EB200FE081B /* Voice */ = {
+			isa = PBXGroup;
+			children = (
+				7A245DEF2E57940100FE081B /* VoiceCommandManager.swift */,
+			);
+			path = Voice;
+			sourceTree = "<group>";
+		};
+		7A245E242E579EBA00FE081B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7A245E252E579EC300FE081B /* USDZModelManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
