@@ -1,0 +1,39 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (491)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def Xform "Transform" (
+        active = true
+    )
+    {
+        def RealityKitComponent "Anchoring"
+        {
+            uniform token info:id = "RealityKit.Anchoring"
+
+            def RealityKitStruct "descriptor"
+            {
+                token type = "Object"
+                asset url = @PhantomRawModelV4.referenceobject@
+            }
+        }
+    }
+
+    def "VirtualPhantom" (
+        active = true
+        prepend references = @VirtualPhantom.usdz@
+    )
+    {
+        float3 xformOp:scale = (0.1, 0.1, 0.1)
+        float3 xformOp:translate = (-2.0489097e-8, 0.25556406, -0.333377)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+

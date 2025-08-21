@@ -32,7 +32,7 @@ struct ImmersiveView: View {
                     
                     switch anchorUpdates.event {
                     case .added:
-                        let model = try await Entity(named: "Scene", in: realityKitContentBundle)
+                        let model = try await Entity(named: "VirtualPhantomTracked", in: realityKitContentBundle)
 //                        let model = appState.referenceObjectLoader.usdzsPerReferenceObjectID[anchor.referenceObject.id]
                         let visualization = ObjectAnchorVisualization(for: anchor, withModel: model)
                         self.objectVisualizations[id] = visualization

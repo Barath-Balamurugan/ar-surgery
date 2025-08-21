@@ -9,13 +9,21 @@
 /* Begin PBXBuildFile section */
 		7A245DCD2E578E6E00FE081B /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 7A245DCC2E578E6E00FE081B /* RealityKitContent */; };
 		7A245DD52E578E7000FE081B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A245DD42E578E7000FE081B /* Assets.xcassets */; };
+		7A245E392E57CC5300FE081B /* ObjectTrackingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245DE42E57929500FE081B /* ObjectTrackingApp.swift */; };
+		7A245E3A2E57CC6F00FE081B /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245DE92E5792D500FE081B /* AppState.swift */; };
+		7A245E3B2E57CC6F00FE081B /* ObjectAnchorVisualization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245DEB2E5792D500FE081B /* ObjectAnchorVisualization.swift */; };
+		7A245E3C2E57CC6F00FE081B /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245DE82E5792D500FE081B /* AppModel.swift */; };
+		7A245E3D2E57CC6F00FE081B /* ReferenceObjectLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245DEA2E5792D500FE081B /* ReferenceObjectLoader.swift */; };
+		7A245E3E2E57CC7700FE081B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245DE52E57929E00FE081B /* ContentView.swift */; };
+		7A245E3F2E57CC7700FE081B /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245DE62E57929E00FE081B /* ImmersiveView.swift */; };
+		7A245E402E57CCC800FE081B /* Entity+ObjectTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245DED2E5792E400FE081B /* Entity+ObjectTracking.swift */; };
+		7A245E412E57D1AF00FE081B /* PhantomRawModelV4.referenceobject in Resources */ = {isa = PBXBuildFile; fileRef = 7A245E272E57B8A600FE081B /* PhantomRawModelV4.referenceobject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7A245DC72E578E6E00FE081B /* ARSurgery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARSurgery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A245DCB2E578E6E00FE081B /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		7A245DD42E578E7000FE081B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7A245DD62E578E7000FE081B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A245DE42E57929500FE081B /* ObjectTrackingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectTrackingApp.swift; sourceTree = "<group>"; };
 		7A245DE52E57929E00FE081B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7A245DE62E57929E00FE081B /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
@@ -26,6 +34,8 @@
 		7A245DED2E5792E400FE081B /* Entity+ObjectTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+ObjectTracking.swift"; sourceTree = "<group>"; };
 		7A245DEF2E57940100FE081B /* VoiceCommandManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCommandManager.swift; sourceTree = "<group>"; };
 		7A245E252E579EC300FE081B /* USDZModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USDZModelManager.swift; sourceTree = "<group>"; };
+		7A245E272E57B8A600FE081B /* PhantomRawModelV4.referenceobject */ = {isa = PBXFileReference; lastKnownFileType = file.referenceobject; path = PhantomRawModelV4.referenceobject; sourceTree = "<group>"; };
+		7A245E372E57C9E800FE081B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,8 +53,9 @@
 		7A245DBE2E578E6E00FE081B = {
 			isa = PBXGroup;
 			children = (
+				7A245E372E57C9E800FE081B /* Info.plist */,
 				7A245DD42E578E7000FE081B /* Assets.xcassets */,
-				7A245DD62E578E7000FE081B /* Info.plist */,
+				7A245E262E57B86300FE081B /* ReferenceObjects */,
 				7A245DE32E57927900FE081B /* DataTransfer */,
 				7A245DE22E57927100FE081B /* VoiceCommand */,
 				7A245DE12E57926B00FE081B /* ObjectTracking */,
@@ -140,6 +151,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7A245E262E57B86300FE081B /* ReferenceObjects */ = {
+			isa = PBXGroup;
+			children = (
+				7A245E272E57B8A600FE081B /* PhantomRawModelV4.referenceobject */,
+			);
+			path = ReferenceObjects;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -175,6 +194,7 @@
 				TargetAttributes = {
 					7A245DC62E578E6E00FE081B = {
 						CreatedOnToolsVersion = 26.0;
+						LastSwiftMigration = 2600;
 					};
 				};
 			};
@@ -202,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A245E412E57D1AF00FE081B /* PhantomRawModelV4.referenceobject in Resources */,
 				7A245DD52E578E7000FE081B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,6 +234,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A245E402E57CCC800FE081B /* Entity+ObjectTracking.swift in Sources */,
+				7A245E392E57CC5300FE081B /* ObjectTrackingApp.swift in Sources */,
+				7A245E3A2E57CC6F00FE081B /* AppState.swift in Sources */,
+				7A245E3E2E57CC7700FE081B /* ContentView.swift in Sources */,
+				7A245E3F2E57CC7700FE081B /* ImmersiveView.swift in Sources */,
+				7A245E3B2E57CC6F00FE081B /* ObjectAnchorVisualization.swift in Sources */,
+				7A245E3C2E57CC6F00FE081B /* AppModel.swift in Sources */,
+				7A245E3D2E57CC6F00FE081B /* ReferenceObjectLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,12 +253,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BRV4JV9J5Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -242,6 +273,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 7;
@@ -253,12 +285,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BRV4JV9J5Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
