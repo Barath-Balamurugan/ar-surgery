@@ -20,13 +20,39 @@ struct ContentView: View {
     
     @State private var fileImporterIsOpen = false
     
-
+    @StateObject private var voiceManager = VoiceCommandManager()
+    
     var body: some View {
         VStack {
 //            Model3D(named: "Scene", bundle: realityKitContentBundle)
 //                .padding(.bottom, 50)
 
             Text("Hello, world!")
+            
+            VStack{
+                VoiceIndicatorView(voiceManager: voiceManager)
+                    .padding()
+                
+                HStack(spacing: 20) {
+                    Button(action: {
+                        if voiceManager.isListening {
+                            voiceManager.stopListening()
+                        } else {
+                            voiceManager.startListening()
+                        }
+                    }) {
+                        Label(
+                            voiceManager.isListening ? "Stop Listening" : "Start Listening",
+                            systemImage: voiceManager.isListening ? "mic.slash.fill" : "mic.fill"
+                        )
+                        .padding()
+                        .background(voiceManager.isListening ? Color.red : Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                    }
+                }
+                .padding()
+            }
         }
         .padding()
         .toolbar{

@@ -2,6 +2,7 @@ import SwiftUI
 import RealityKit
 import Speech
 import AVFoundation
+import Combine
 
 class VoiceCommandManager: ObservableObject {
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))

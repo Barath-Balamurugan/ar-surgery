@@ -3,6 +3,7 @@ import RealityKit
 import Speech
 import AVFoundation
 import RealityKitContent
+import Combine
 
 class USDZModelManager: ObservableObject {
     @Published var components: [String: ComponentInfo] = [:]
