@@ -4,6 +4,6 @@ Interactive Surgical guidance prototype for Apple Vision Pro built with SwiftUI,
 
 ## Object Tracking
 
-![Immersive phantom overlay](docs/media/hero.png)
+![Immersive phantom overlay](Images/img_0413_720.jpeg)
 
 Recognizes the Phantom in the real-world and attaches a virtual model (Virtual Phantom) to it in the immersive space.
