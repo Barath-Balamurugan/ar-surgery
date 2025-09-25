@@ -10,6 +10,7 @@
 
 def Xform "Root"
 {
+    reorder nameChildren = ["Transform", "VirtualPhantom"]
     def Xform "Transform" (
         active = true
     )
@@ -28,11 +29,11 @@ def Xform "Root"
 
     def "VirtualPhantom" (
         active = true
-        prepend references = @VirtualPhantom.usdz@
+        references = @VirtualPhantom.usda@
     )
     {
-        float3 xformOp:scale = (0.1, 0.1, 0.1)
-        float3 xformOp:translate = (-3.585592e-8, 0.32, -0.32)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0.228255, -0.18815933)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 }
