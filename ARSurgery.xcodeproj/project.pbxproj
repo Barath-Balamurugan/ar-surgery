@@ -20,8 +20,9 @@
 		7A245E422E57E2D400FE081B /* VoiceCommandManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245DEF2E57940100FE081B /* VoiceCommandManager.swift */; };
 		7A245E432E57E2D400FE081B /* USDZModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245E252E579EC300FE081B /* USDZModelManager.swift */; };
 		7A245E462E57E6AE00FE081B /* VoiceIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245E452E57E6A600FE081B /* VoiceIndicatorView.swift */; };
-		7A245E482E57F00000FE081B /* ProbeRawModel.referenceobject in Sources */ = {isa = PBXBuildFile; fileRef = 7A245E472E57F00000FE081B /* ProbeRawModel.referenceobject */; };
 		7A245E4E2E57F49A00FE081B /* PhantomRawModelV4.referenceobject in Sources */ = {isa = PBXBuildFile; fileRef = 7A245E4D2E57F49A00FE081B /* PhantomRawModelV4.referenceobject */; };
+		7AC20F9A2E81DA8300C732FC /* ProbeRawModelv5.referenceobject in Sources */ = {isa = PBXBuildFile; fileRef = 7AC20F992E81DA8300C732FC /* ProbeRawModelv5.referenceobject */; };
+		7AC20F9C2E81E1CC00C732FC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC20F9B2E81E1CA00C732FC /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +41,9 @@
 		7A245E252E579EC300FE081B /* USDZModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USDZModelManager.swift; sourceTree = "<group>"; };
 		7A245E372E57C9E800FE081B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A245E452E57E6A600FE081B /* VoiceIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceIndicatorView.swift; sourceTree = "<group>"; };
-		7A245E472E57F00000FE081B /* ProbeRawModel.referenceobject */ = {isa = PBXFileReference; lastKnownFileType = file.referenceobject; path = ProbeRawModel.referenceobject; sourceTree = "<group>"; };
 		7A245E4D2E57F49A00FE081B /* PhantomRawModelV4.referenceobject */ = {isa = PBXFileReference; lastKnownFileType = file.referenceobject; path = PhantomRawModelV4.referenceobject; sourceTree = "<group>"; };
+		7AC20F992E81DA8300C732FC /* ProbeRawModelv5.referenceobject */ = {isa = PBXFileReference; lastKnownFileType = file.referenceobject; path = ProbeRawModelv5.referenceobject; sourceTree = "<group>"; };
+		7AC20F9B2E81E1CA00C732FC /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 		7A245DEE2E5792E400FE081B /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
+				7AC20F9B2E81E1CA00C732FC /* Helpers.swift */,
 				7A245DED2E5792E400FE081B /* Entity+ObjectTracking.swift */,
 			);
 			path = Extentions;
@@ -161,8 +164,8 @@
 		7A245E262E57B86300FE081B /* ReferenceObjects */ = {
 			isa = PBXGroup;
 			children = (
-				7A245E472E57F00000FE081B /* ProbeRawModel.referenceobject */,
 				7A245E4D2E57F49A00FE081B /* PhantomRawModelV4.referenceobject */,
+				7AC20F992E81DA8300C732FC /* ProbeRawModelv5.referenceobject */,
 			);
 			path = ReferenceObjects;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A245E402E57CCC800FE081B /* Entity+ObjectTracking.swift in Sources */,
+				7AC20F9C2E81E1CC00C732FC /* Helpers.swift in Sources */,
 				7A245E392E57CC5300FE081B /* ObjectTrackingApp.swift in Sources */,
 				7A245E422E57E2D400FE081B /* VoiceCommandManager.swift in Sources */,
 				7A245E432E57E2D400FE081B /* USDZModelManager.swift in Sources */,
@@ -258,10 +262,10 @@
 				7A245E3E2E57CC7700FE081B /* ContentView.swift in Sources */,
 				7A245E3F2E57CC7700FE081B /* ImmersiveView.swift in Sources */,
 				7A245E3B2E57CC6F00FE081B /* ObjectAnchorVisualization.swift in Sources */,
-				7A245E482E57F00000FE081B /* ProbeRawModel.referenceobject in Sources */,
 				7A245E3C2E57CC6F00FE081B /* AppModel.swift in Sources */,
 				7A245E462E57E6AE00FE081B /* VoiceIndicatorView.swift in Sources */,
 				7A245E3D2E57CC6F00FE081B /* ReferenceObjectLoader.swift in Sources */,
+				7AC20F9A2E81DA8300C732FC /* ProbeRawModelv5.referenceobject in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,7 +399,7 @@
 				SDKROOT = xros;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				XROS_DEPLOYMENT_TARGET = 26.0;
+				XROS_DEPLOYMENT_TARGET = 2.6;
 			};
 			name = Debug;
 		};
@@ -452,7 +456,7 @@
 				SDKROOT = xros;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
-				XROS_DEPLOYMENT_TARGET = 26.0;
+				XROS_DEPLOYMENT_TARGET = 2.6;
 			};
 			name = Release;
 		};

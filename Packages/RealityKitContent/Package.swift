@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "RealityKitContent",
     platforms: [
-        .visionOS(.v26),
+        .visionOS(.v2),
         .macOS(.v26),
         .iOS(.v26),
         .tvOS(.v26)

@@ -7,11 +7,17 @@
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/GridMaterial.usda" : "66168B71-AB05-424E-8B6C-D33D6E61B08F",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Immersive.usda" : "AF09ED6F-1707-48FD-8720-65B998362C09",
     "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scene.usda" : "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Untitled%20Scene.usda" : "46FE06FB-42E2-4E89-80F8-3198FB066458"
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Untitled%20Scene.usda" : "46FE06FB-42E2-4E89-80F8-3198FB066458",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/VirtualPhantom.usda" : "A35F74F7-647D-4523-9EF4-606DDFF0CB3A",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/VirtualPhantomTracked.usda" : "26CBF004-095E-419C-9F36-3BC3C0039A43",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/VirtualProbeTracked.usda" : "1979ED0C-F481-4186-9123-7B9DB520EB8D"
   },
   "projectID" : 6982370435642397299,
   "uuidToIntID" : {
+    "26CBF004-095E-419C-9F36-3BC3C0039A43" : -7233290778521741446,
     "46FE06FB-42E2-4E89-80F8-3198FB066458" : 6148555236830877270,
-    "AF09ED6F-1707-48FD-8720-65B998362C09" : -3637882859464192609
+    "A35F74F7-647D-4523-9EF4-606DDFF0CB3A" : 5401066060717755082,
+    "AF09ED6F-1707-48FD-8720-65B998362C09" : -3637882859464192609,
+    "D66134B1-3681-4A8E-AFE5-29F257229F3B" : -7441369946575911044
   }
 }
