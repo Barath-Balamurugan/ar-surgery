@@ -22,6 +22,8 @@
 		7A245E462E57E6AE00FE081B /* VoiceIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245E452E57E6A600FE081B /* VoiceIndicatorView.swift */; };
 		7A245E4E2E57F49A00FE081B /* PhantomRawModelV4.referenceobject in Sources */ = {isa = PBXBuildFile; fileRef = 7A245E4D2E57F49A00FE081B /* PhantomRawModelV4.referenceobject */; };
 		7A6DFD7E2EBBD52D00B9C35B /* ARSurgeryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6DFD7D2EBBD52300B9C35B /* ARSurgeryApp.swift */; };
+		7AC079E12EC02D2500C4A53E /* VoiceControllerSpatialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC079E02EC02D2500C4A53E /* VoiceControllerSpatialView.swift */; };
+		7AC079E32EC02DCD00C4A53E /* ModelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC079E22EC02DC700C4A53E /* ModelStore.swift */; };
 		7AC20F9A2E81DA8300C732FC /* ProbeRawModelv5.referenceobject in Sources */ = {isa = PBXBuildFile; fileRef = 7AC20F992E81DA8300C732FC /* ProbeRawModelv5.referenceobject */; };
 		7AC20F9C2E81E1CC00C732FC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC20F9B2E81E1CA00C732FC /* Helpers.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +46,8 @@
 		7A245E452E57E6A600FE081B /* VoiceIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceIndicatorView.swift; sourceTree = "<group>"; };
 		7A245E4D2E57F49A00FE081B /* PhantomRawModelV4.referenceobject */ = {isa = PBXFileReference; lastKnownFileType = file.referenceobject; path = PhantomRawModelV4.referenceobject; sourceTree = "<group>"; };
 		7A6DFD7D2EBBD52300B9C35B /* ARSurgeryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSurgeryApp.swift; sourceTree = SOURCE_ROOT; };
+		7AC079E02EC02D2500C4A53E /* VoiceControllerSpatialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceControllerSpatialView.swift; sourceTree = "<group>"; };
+		7AC079E22EC02DC700C4A53E /* ModelStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelStore.swift; sourceTree = "<group>"; };
 		7AC20F992E81DA8300C732FC /* ProbeRawModelv5.referenceobject */ = {isa = PBXFileReference; lastKnownFileType = file.referenceobject; path = ProbeRawModelv5.referenceobject; sourceTree = "<group>"; };
 		7AC20F9B2E81E1CA00C732FC /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,6 +172,7 @@
 		7A245E442E57E6A100FE081B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7AC079E02EC02D2500C4A53E /* VoiceControllerSpatialView.swift */,
 				7A245E452E57E6A600FE081B /* VoiceIndicatorView.swift */,
 			);
 			path = Views;
@@ -176,6 +181,7 @@
 		7A6DFD7B2EBBD3D300B9C35B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				7AC079E22EC02DC700C4A53E /* ModelStore.swift */,
 				7A245DE52E57929E00FE081B /* MainScreen.swift */,
 			);
 			path = Common;
@@ -266,7 +272,9 @@
 				7A6DFD7E2EBBD52D00B9C35B /* ARSurgeryApp.swift in Sources */,
 				7A245E3F2E57CC7700FE081B /* ImmersiveView.swift in Sources */,
 				7A245E3B2E57CC6F00FE081B /* ObjectAnchorVisualization.swift in Sources */,
+				7AC079E32EC02DCD00C4A53E /* ModelStore.swift in Sources */,
 				7A245E3C2E57CC6F00FE081B /* AppModel.swift in Sources */,
+				7AC079E12EC02D2500C4A53E /* VoiceControllerSpatialView.swift in Sources */,
 				7A245E462E57E6AE00FE081B /* VoiceIndicatorView.swift in Sources */,
 				7A245E3D2E57CC6F00FE081B /* ReferenceObjectLoader.swift in Sources */,
 				7AC20F9A2E81DA8300C732FC /* ProbeRawModelv5.referenceobject in Sources */,

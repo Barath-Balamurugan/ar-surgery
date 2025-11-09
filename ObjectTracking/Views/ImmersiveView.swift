@@ -13,6 +13,7 @@ import simd
 
 struct ImmersiveView: View {
     var appState: AppState
+    @EnvironmentObject var modelStore: ModelStore
     
     var root = Entity()
     @State private var objectVisualizations: [UUID: ObjectAnchorVisualization] = [:]
@@ -125,6 +126,7 @@ struct ImmersiveView: View {
                                 if refName == "PhantomRawV4"{
                                     root.addChild(visualization.entity)
                                     phantomModel = visualization.entity
+                                    modelStore.phantom = visualization.entity
                                 }
 
                             case .updated:

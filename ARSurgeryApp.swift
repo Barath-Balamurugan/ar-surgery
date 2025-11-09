@@ -14,6 +14,7 @@ private enum UIIdentifier {
 @main
 struct ARSurgeryApp: App {
     @State private var appState = AppState()
+    @StateObject private var modelStore = ModelStore.shared
     
     var body: some Scene {
         WindowGroup(id: "main_screen") {
@@ -31,6 +32,7 @@ struct ARSurgeryApp: App {
         
         ImmersiveSpace(id: UIIdentifier.immersiveSpace){
             ImmersiveView(appState: appState)
+                .environmentObject(modelStore)
         }
     }
     
