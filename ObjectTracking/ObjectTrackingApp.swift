@@ -11,14 +11,13 @@ private enum UIIdentifier {
     static let immersiveSpace = "Object Tracking"
 }
 
-@main
 @MainActor
 struct ObjectTrackingApp: App {
     @State private var appState = AppState()
 
     var body: some Scene {
         WindowGroup {
-            ContentView(
+            MainScreen(
                 appState: appState,
                 immersiveSpaceIdentifier: UIIdentifier.immersiveSpace
             )

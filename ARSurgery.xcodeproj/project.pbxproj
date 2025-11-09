@@ -14,13 +14,14 @@
 		7A245E3B2E57CC6F00FE081B /* ObjectAnchorVisualization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245DEB2E5792D500FE081B /* ObjectAnchorVisualization.swift */; };
 		7A245E3C2E57CC6F00FE081B /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245DE82E5792D500FE081B /* AppModel.swift */; };
 		7A245E3D2E57CC6F00FE081B /* ReferenceObjectLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245DEA2E5792D500FE081B /* ReferenceObjectLoader.swift */; };
-		7A245E3E2E57CC7700FE081B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245DE52E57929E00FE081B /* ContentView.swift */; };
+		7A245E3E2E57CC7700FE081B /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245DE52E57929E00FE081B /* MainScreen.swift */; };
 		7A245E3F2E57CC7700FE081B /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245DE62E57929E00FE081B /* ImmersiveView.swift */; };
 		7A245E402E57CCC800FE081B /* Entity+ObjectTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245DED2E5792E400FE081B /* Entity+ObjectTracking.swift */; };
 		7A245E422E57E2D400FE081B /* VoiceCommandManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245DEF2E57940100FE081B /* VoiceCommandManager.swift */; };
 		7A245E432E57E2D400FE081B /* USDZModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245E252E579EC300FE081B /* USDZModelManager.swift */; };
 		7A245E462E57E6AE00FE081B /* VoiceIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A245E452E57E6A600FE081B /* VoiceIndicatorView.swift */; };
 		7A245E4E2E57F49A00FE081B /* PhantomRawModelV4.referenceobject in Sources */ = {isa = PBXBuildFile; fileRef = 7A245E4D2E57F49A00FE081B /* PhantomRawModelV4.referenceobject */; };
+		7A6DFD7E2EBBD52D00B9C35B /* ARSurgeryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6DFD7D2EBBD52300B9C35B /* ARSurgeryApp.swift */; };
 		7AC20F9A2E81DA8300C732FC /* ProbeRawModelv5.referenceobject in Sources */ = {isa = PBXBuildFile; fileRef = 7AC20F992E81DA8300C732FC /* ProbeRawModelv5.referenceobject */; };
 		7AC20F9C2E81E1CC00C732FC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC20F9B2E81E1CA00C732FC /* Helpers.swift */; };
 /* End PBXBuildFile section */
@@ -30,7 +31,7 @@
 		7A245DCB2E578E6E00FE081B /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		7A245DD42E578E7000FE081B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A245DE42E57929500FE081B /* ObjectTrackingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectTrackingApp.swift; sourceTree = "<group>"; };
-		7A245DE52E57929E00FE081B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7A245DE52E57929E00FE081B /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		7A245DE62E57929E00FE081B /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
 		7A245DE82E5792D500FE081B /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		7A245DE92E5792D500FE081B /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -42,6 +43,7 @@
 		7A245E372E57C9E800FE081B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A245E452E57E6A600FE081B /* VoiceIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceIndicatorView.swift; sourceTree = "<group>"; };
 		7A245E4D2E57F49A00FE081B /* PhantomRawModelV4.referenceobject */ = {isa = PBXFileReference; lastKnownFileType = file.referenceobject; path = PhantomRawModelV4.referenceobject; sourceTree = "<group>"; };
+		7A6DFD7D2EBBD52300B9C35B /* ARSurgeryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSurgeryApp.swift; sourceTree = SOURCE_ROOT; };
 		7AC20F992E81DA8300C732FC /* ProbeRawModelv5.referenceobject */ = {isa = PBXFileReference; lastKnownFileType = file.referenceobject; path = ProbeRawModelv5.referenceobject; sourceTree = "<group>"; };
 		7AC20F9B2E81E1CA00C732FC /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,10 +63,13 @@
 		7A245DBE2E578E6E00FE081B = {
 			isa = PBXGroup;
 			children = (
+				7A6DFD7D2EBBD52300B9C35B /* ARSurgeryApp.swift */,
+				7A245DE92E5792D500FE081B /* AppState.swift */,
+				7A245DE82E5792D500FE081B /* AppModel.swift */,
 				7A245E372E57C9E800FE081B /* Info.plist */,
 				7A245DD42E578E7000FE081B /* Assets.xcassets */,
+				7A6DFD7B2EBBD3D300B9C35B /* Common */,
 				7A245E262E57B86300FE081B /* ReferenceObjects */,
-				7A245DE32E57927900FE081B /* DataTransfer */,
 				7A245DE22E57927100FE081B /* VoiceCommand */,
 				7A245DE12E57926B00FE081B /* ObjectTracking */,
 				7A245DCA2E578E6E00FE081B /* Packages */,
@@ -109,17 +114,9 @@
 			path = VoiceCommand;
 			sourceTree = "<group>";
 		};
-		7A245DE32E57927900FE081B /* DataTransfer */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DataTransfer;
-			sourceTree = "<group>";
-		};
 		7A245DE72E57929E00FE081B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7A245DE52E57929E00FE081B /* ContentView.swift */,
 				7A245DE62E57929E00FE081B /* ImmersiveView.swift */,
 			);
 			path = Views;
@@ -128,8 +125,6 @@
 		7A245DEC2E5792D500FE081B /* App */ = {
 			isa = PBXGroup;
 			children = (
-				7A245DE82E5792D500FE081B /* AppModel.swift */,
-				7A245DE92E5792D500FE081B /* AppState.swift */,
 				7A245DEA2E5792D500FE081B /* ReferenceObjectLoader.swift */,
 				7A245DEB2E5792D500FE081B /* ObjectAnchorVisualization.swift */,
 			);
@@ -176,6 +171,14 @@
 				7A245E452E57E6A600FE081B /* VoiceIndicatorView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7A6DFD7B2EBBD3D300B9C35B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7A245DE52E57929E00FE081B /* MainScreen.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +262,8 @@
 				7A245E432E57E2D400FE081B /* USDZModelManager.swift in Sources */,
 				7A245E3A2E57CC6F00FE081B /* AppState.swift in Sources */,
 				7A245E4E2E57F49A00FE081B /* PhantomRawModelV4.referenceobject in Sources */,
-				7A245E3E2E57CC7700FE081B /* ContentView.swift in Sources */,
+				7A245E3E2E57CC7700FE081B /* MainScreen.swift in Sources */,
+				7A6DFD7E2EBBD52D00B9C35B /* ARSurgeryApp.swift in Sources */,
 				7A245E3F2E57CC7700FE081B /* ImmersiveView.swift in Sources */,
 				7A245E3B2E57CC6F00FE081B /* ObjectAnchorVisualization.swift in Sources */,
 				7A245E3C2E57CC6F00FE081B /* AppModel.swift in Sources */,
