@@ -23,13 +23,13 @@ class USDZModelManager: ObservableObject {
         rootEntity = entity
         findAndRegisterComponents(in: entity)
         modelLoaded = true
-        print("Setup model with \(components.count) components")
+//        print("Setup model with \(components.count) components")
     }
     
     private func findAndRegisterComponents(in entity: Entity, depth: Int = 0, parentName: String = "") {
         // Debug: Print entity hierarchy
         let indent = String(repeating: "  ", count: depth)
-        print("\(indent)Entity: '\(entity.name.isEmpty ? "unnamed" : entity.name)' (children: \(entity.children.count))")
+//        print("\(indent)Entity: '\(entity.name.isEmpty ? "unnamed" : entity.name)' (children: \(entity.children.count))")
         
         // Expected component names - try different variations
         let expectedNames = ["Bone", "Brain", "Skin", "Soft Tissue", "SoftTissue", "Soft_Tissue",
@@ -41,7 +41,7 @@ class USDZModelManager: ObservableObject {
             // Try exact match
             if expectedNames.contains(entity.name) {
                 registerComponent(entity, name: entity.name)
-                print("✅ Registered component: '\(entity.name)'")
+//                print("✅ Registered component: '\(entity.name)'")
             }
             
             // Try case-insensitive match
@@ -49,7 +49,7 @@ class USDZModelManager: ObservableObject {
             for expected in expectedNames {
                 if lowercasedName == expected.lowercased() {
                     registerComponent(entity, name: expected)
-                    print("✅ Registered component (case-insensitive): '\(expected)' for entity '\(entity.name)'")
+//                    print("✅ Registered component (case-insensitive): '\(expected)' for entity '\(entity.name)'")
                     break
                 }
             }
@@ -57,44 +57,44 @@ class USDZModelManager: ObservableObject {
             // Try partial match for multi-word components
             if lowercasedName.contains("soft") && lowercasedName.contains("tissue") {
                 registerComponent(entity, name: "Soft Tissue")
-                print("✅ Registered 'Soft Tissue' for entity '\(entity.name)'")
+//                print("✅ Registered 'Soft Tissue' for entity '\(entity.name)'")
             }
             
             if lowercasedName.contains("tumor") {
                 registerComponent(entity, name: "Tumers")
-                print("✅ Registered 'Tumers' for entity '\(entity.name)'")
+//                print("✅ Registered 'Tumers' for entity '\(entity.name)'")
             }
         }
         
         // Process all children recursively
         for (index, child) in entity.children.enumerated() {
-            print("\(indent)  Child \(index): '\(child.name)'")
+//            print("\(indent)  Child \(index): '\(child.name)'")
             findAndRegisterComponents(in: child, depth: depth + 1, parentName: entity.name)
         }
         
         // Special handling: If this is the root and it has exactly 8 children, register them by index
         if depth == 0 && entity.children.count == 8 {
-            print("\n📍 Found root with 8 children - registering by index as fallback")
+//            print("\n📍 Found root with 8 children - registering by index as fallback")
             for (index, child) in entity.children.enumerated() {
                 let componentName = "component\(index + 1)"
                 registerComponent(child, name: componentName)
-                print("  - Registered child \(index) as '\(componentName)' (actual name: '\(child.name)')")
+//                print("  - Registered child \(index) as '\(componentName)' (actual name: '\(child.name)')")
             }
         }
         
         // Print summary when done with root
         if depth == 0 {
-            print("\n📊 Component Registration Summary:")
-            print("Total components registered: \(components.count)")
+//            print("\n📊 Component Registration Summary:")
+//            print("Total components registered: \(components.count)")
             let sortedComponents = components.keys.sorted()
             for name in sortedComponents {
                 if let component = components[name] {
-                    print("  - '\(name)' (entity name: '\(component.entity.name)')")
+//                    print("  - '\(name)' (entity name: '\(component.entity.name)')")
                 }
             }
             
             // Check which expected components are missing
-            print("\n🔍 Missing components check:")
+//            print("\n🔍 Missing components check:")
             let registeredNames = Set(components.keys)
             for expected in ["Bone", "Brain", "Skin", "Soft Tissue", "Temporalis", "Tumers", "Venous", "Ventricles"] {
                 if !registeredNames.contains(expected) {
@@ -119,7 +119,7 @@ class USDZModelManager: ObservableObject {
             return
         }
         
-        print("Enabling component: '\(name)'")
+//        print("Enabling component: '\(name)'")
         
         // Cancel any pending disable operations
         component.entity.stopAllAnimations()
@@ -163,7 +163,7 @@ class USDZModelManager: ObservableObject {
             return
         }
         
-        print("Disabling component: '\(name)'")
+//        print("Disabling component: '\(name)'")
         
         // Cancel any pending animations
         component.entity.stopAllAnimations()
@@ -209,7 +209,7 @@ class USDZModelManager: ObservableObject {
         component.entity.transform = component.originalTransform
         components[name]?.isEnabled = true
         
-        print("✅ Simple enabled: '\(name)'")
+//        print("✅ Simple enabled: '\(name)'")
     }
     
     func simpleDisableComponent(named name: String) {
@@ -218,7 +218,7 @@ class USDZModelManager: ObservableObject {
         component.entity.isEnabled = false
         components[name]?.isEnabled = false
         
-        print("✅ Simple disabled: '\(name)'")
+//        print("✅ Simple disabled: '\(name)'")
     }
     
     func handleCommand(_ command: VoiceCommandManager.VoiceCommand) {
@@ -228,7 +228,7 @@ class USDZModelManager: ObservableObject {
         
         if componentName == "all" {
             // Handle all components
-            print("Applying to all \(components.count) components")
+//            print("Applying to all \(components.count) components")
             switch command.type {
             case .enable, .show:
                 components.keys.forEach { enableComponent(named: $0) }
@@ -240,7 +240,7 @@ class USDZModelManager: ObservableObject {
         } else {
             // Handle specific component
             if components[componentName] != nil {
-                print("✅ Found component '\(componentName)'")
+//                print("✅ Found component '\(componentName)'")
                 switch command.type {
                 case .enable, .show:
                     enableComponent(named: componentName)
@@ -251,7 +251,7 @@ class USDZModelManager: ObservableObject {
                 }
             } else {
                 print("❌ Component '\(componentName)' not found!")
-                print("Available components: \(components.keys.sorted())")
+//                print("Available components: \(components.keys.sorted())")
             }
         }
     }

@@ -18,7 +18,7 @@ struct ImmersiveView: View {
     var root = Entity()
     @State private var objectVisualizations: [UUID: ObjectAnchorVisualization] = [:]
     
-    @StateObject private var voiceManager = VoiceCommandManager()
+    @EnvironmentObject var voiceManager: VoiceCommandManager
     @StateObject private var modelManager = USDZModelManager()
     
     @State var worldFromPhantom: simd_float4x4 = matrix_identity_float4x4
@@ -126,6 +126,7 @@ struct ImmersiveView: View {
                                 if refName == "PhantomRawV4"{
                                     root.addChild(visualization.entity)
                                     phantomModel = visualization.entity
+                                    modelManager.setupModel(entity: visualization.entity)
                                     modelStore.phantom = visualization.entity
                                 }
 
@@ -145,9 +146,13 @@ struct ImmersiveView: View {
                 }
             }
             .onChange(of: voiceManager.lastCommand) { _, newCommand in
+                print("🟢 ImmersiveView received voice update:", newCommand as Any)
                 if let command = newCommand {
+                    print("🎤 Received voice command in ImmersiveView:", command)
                     modelManager.handleCommand(command)
-                    voiceManager.lastCommand = nil
+                }
+                else{
+                    print("❌ No command received")
                 }
             }
             .onAppear() {
@@ -175,13 +180,13 @@ struct ImmersiveView: View {
     
     func printMatrix(_ label: String, _ m: simd_float4x4) {
         let c0 = m.columns.0, c1 = m.columns.1, c2 = m.columns.2, c3 = m.columns.3
-        print("""
-        \(label):
-        [\(c0.x) \(c1.x) \(c2.x) \(c3.x)
-         \(c0.y) \(c1.y) \(c2.y) \(c3.y)
-         \(c0.z) \(c1.z) \(c2.z) \(c3.z)
-         \(c0.w) \(c1.w) \(c2.w) \(c3.w)]
-        """)
+//        print("""
+//        \(label):
+//        [\(c0.x) \(c1.x) \(c2.x) \(c3.x)
+//         \(c0.y) \(c1.y) \(c2.y) \(c3.y)
+//         \(c0.z) \(c1.z) \(c2.z) \(c3.z)
+//         \(c0.w) \(c1.w) \(c2.w) \(c3.w)]
+//        """)
     }
     
     @MainActor

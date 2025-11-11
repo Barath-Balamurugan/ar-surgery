@@ -15,12 +15,12 @@ class VoiceCommandManager: ObservableObject {
     @Published var lastCommand: VoiceCommand?
     @Published var commandExecuted = false
     @Published var executedCommandText = ""
-    @Published var isAwake = false  // New: tracks if trigger word was heard
+    @Published var isAwake = true  // New: tracks if trigger word was heard
     @Published var wakeWordDetected = false  // New: visual feedback for wake word
     
     // Trigger words to activate command listening
-    let triggerWords = ["hey probe", "probe", "hey model", "model", "activate", "listen"]
-    let sleepWords = ["stop", "sleep", "goodbye", "stop listening"]
+//    let triggerWords = ["hey probe", "probe", "hey model", "model", "activate", "listen"]
+//    let sleepWords = ["stop", "sleep", "goodbye", "stop listening"]
     
     // Timer to auto-sleep after inactivity
     private var sleepTimer: Timer?
@@ -117,7 +117,7 @@ class VoiceCommandManager: ObservableObject {
                 self.recognizedText = result.bestTranscription.formattedString
                 
                 // Check for trigger/sleep words first
-                self.checkForTriggerWords(result.bestTranscription.formattedString)
+//                self.checkForTriggerWords(result.bestTranscription.formattedString)
                 
                 // Only process commands if awake
                 if self.isAwake {
@@ -178,59 +178,59 @@ class VoiceCommandManager: ObservableObject {
         try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
     }
     
-    private func checkForTriggerWords(_ text: String) {
-        let lowercased = text.lowercased()
-        
-        // Check for sleep words first (higher priority)
-        for sleepWord in sleepWords {
-            if lowercased.contains(sleepWord) {
-                goToSleep()
-                return
-            }
-        }
-        
-        // Check for wake/trigger words
-        for trigger in triggerWords {
-            if lowercased.contains(trigger) && !isAwake {
-                wakeUp()
-                return
-            }
-        }
-    }
+//    private func checkForTriggerWords(_ text: String) {
+//        let lowercased = text.lowercased()
+//        
+//        // Check for sleep words first (higher priority)
+//        for sleepWord in sleepWords {
+//            if lowercased.contains(sleepWord) {
+//                goToSleep()
+//                return
+//            }
+//        }
+//        
+//        // Check for wake/trigger words
+//        for trigger in triggerWords {
+//            if lowercased.contains(trigger) && !isAwake {
+//                wakeUp()
+//                return
+//            }
+//        }
+//    }
     
-    private func wakeUp() {
-        isAwake = true
-        wakeWordDetected = true
-        recognizedText = "🟢 Listening for commands..."
-        
-        // Visual feedback animation
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-            self?.wakeWordDetected = false
-        }
-        
-        // Reset sleep timer
-        resetSleepTimer()
-        
-        print("✅ Wake word detected - now listening for commands")
-    }
+//    private func wakeUp() {
+//        isAwake = true
+//        wakeWordDetected = true
+//        recognizedText = "🟢 Listening for commands..."
+//        
+//        // Visual feedback animation
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+//            self?.wakeWordDetected = false
+//        }
+//        
+//        // Reset sleep timer
+//        resetSleepTimer()
+//        
+//        print("✅ Wake word detected - now listening for commands")
+//    }
     
-    private func goToSleep() {
-        isAwake = false
-        recognizedText = "💤 Say '\(triggerWords.first ?? "hey probe")' to activate"
-        sleepTimer?.invalidate()
-        sleepTimer = nil
-        
-        print("😴 Going to sleep - waiting for wake word")
-    }
+//    private func goToSleep() {
+//        isAwake = false
+//        recognizedText = "💤 Say '\(triggerWords.first ?? "hey probe")' to activate"
+//        sleepTimer?.invalidate()
+//        sleepTimer = nil
+//        
+//        print("😴 Going to sleep - waiting for wake word")
+//    }
     
-    private func resetSleepTimer() {
-        sleepTimer?.invalidate()
-        
-        // Auto-sleep after 30 seconds of inactivity
-        sleepTimer = Timer.scheduledTimer(withTimeInterval: 30.0, repeats: false) { [weak self] _ in
-            self?.goToSleep()
-        }
-    }
+//    private func resetSleepTimer() {
+//        sleepTimer?.invalidate()
+//        
+//        // Auto-sleep after 30 seconds of inactivity
+//        sleepTimer = Timer.scheduledTimer(withTimeInterval: 30.0, repeats: false) { [weak self] _ in
+//            self?.goToSleep()
+//        }
+//    }
     
     // Add this to the component name aliases
     let componentAliases: [String: String] = [
@@ -260,7 +260,7 @@ class VoiceCommandManager: ObservableObject {
         
         // Reset sleep timer on any command
         if isAwake {
-            resetSleepTimer()
+//            resetSleepTimer()
         }
         
         // Don't process if not awake

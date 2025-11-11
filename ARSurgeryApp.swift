@@ -15,6 +15,7 @@ private enum UIIdentifier {
 struct ARSurgeryApp: App {
     @State private var appState = AppState()
     @StateObject private var modelStore = ModelStore.shared
+    @StateObject private var voiceManager = VoiceCommandManager()
     
     var body: some Scene {
         WindowGroup(id: "main_screen") {
@@ -22,6 +23,7 @@ struct ARSurgeryApp: App {
                 appState: appState,
                 immersiveSpaceIdentifier: UIIdentifier.immersiveSpace
             )
+            .environmentObject(voiceManager)
             .task{
                 if appState.allRequiredProvidersAreSupported {
                     await appState.referenceObjectLoader.loadBuiltInReferenceObjects()
@@ -33,6 +35,7 @@ struct ARSurgeryApp: App {
         ImmersiveSpace(id: UIIdentifier.immersiveSpace){
             ImmersiveView(appState: appState)
                 .environmentObject(modelStore)
+                .environmentObject(voiceManager)
         }
     }
     

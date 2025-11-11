@@ -20,7 +20,7 @@ struct MainScreen: View {
     
     @State private var fileImporterIsOpen = false
     
-    @StateObject private var voiceManager = VoiceCommandManager()
+    @EnvironmentObject var voiceManager: VoiceCommandManager
     
     var body: some View {
         VStack {
@@ -67,6 +67,13 @@ struct MainScreen: View {
                                 Task {
                                     switch await openImmersiveSpace(id: immersiveSpaceIdentifier) {
                                     case .opened:
+                                        if voiceManager.isListening {
+                                            voiceManager.stopListening()
+                                            print("Not Listening...")
+                                        } else {
+                                            voiceManager.startListening()
+                                            print("Listening...")
+                                        }
                                         break
                                     case .error:
                                         print("An error occurred when trying to open the immersive space \(immersiveSpaceIdentifier)")
