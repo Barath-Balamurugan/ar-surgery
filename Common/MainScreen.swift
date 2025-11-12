@@ -21,6 +21,7 @@ struct MainScreen: View {
     @State private var fileImporterIsOpen = false
     
     @EnvironmentObject var voiceManager: VoiceCommandManager
+    @StateObject private var ble = BLEManager()
     
     var body: some View {
         VStack {
@@ -30,6 +31,21 @@ struct MainScreen: View {
             Text("AR Surgery")
                 .font(.headline)
                 .bold()
+            
+            Text(ble.statusText).font(.headline)
+            
+            Grid(alignment: .leading, horizontalSpacing: 24, verticalSpacing: 8) {
+//                GridRow { Text("Roll");  Text(valueText(ble.roll)) }
+//                GridRow { Text("Pitch"); Text(valueText(ble.pitch)) }
+//                GridRow { Text("Yaw");   Text(valueText(ble.yaw)) }
+                GridRow { Text("Depth"); Text(valueText(ble.depth) + " mm") }
+            }
+            .font(.system(size: 18, weight: .medium, design: .rounded))
+
+            HStack {
+                Button("Start") { ble.start() }
+                Button("Stop")  { ble.stop() }
+            }
             
 //            VStack{
 //                VoiceIndicatorView(voiceManager: voiceManager)
@@ -152,5 +168,9 @@ struct MainScreen: View {
             // Settings app to the foreground and changes authorizations there.
             await appState.monitorSessionEvents()
         }
+    }
+    
+    private func valueText(_ v: Float) -> String {
+        v.isNaN ? "—" : String(format: "%.2f", v)
     }
 }
