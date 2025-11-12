@@ -36,6 +36,9 @@ class VoiceCommandManager: ObservableObject {
             case toggle
             case show
             case hide
+            case scaleRelative(percent: Float)
+            case scaleAbsolute(percent: Float)
+            case scaleReset
         }
     }
     
@@ -297,6 +300,55 @@ class VoiceCommandManager: ObservableObject {
             }
         }
         
+        if lowercased.contains("reset scale") || lowercased.contains("reset the scale") {
+            lastCommand = VoiceCommand(type: .scaleReset,
+                                       componentName: containsAllKeyword(lowercased) ? "all" : findBestComponentMatch(for: lowercased) )
+            resetAfterCommand()
+            return
+        }
+        
+        let incPhrases = ["increase", "scale up", "bigger", "enlarge", "grow", "zoom in", "up by"]
+        let decPhrases = ["decrease", "scale down", "smaller", "shrink", "reduce", "zoom out", "down by"]
+        let setPhrases = ["set scale to", "set the scale to", "scale to", "set to"]
+
+        func targetNameFromFreeText(_ text: String) -> String? {
+            // Try alias hit first (e.g., "increase 10% bone")
+            for (_, componentName) in componentAliases {
+                if text.contains(componentName.lowercased()) { return componentName }
+            }
+            // Fallback to fuzzy
+            return findBestComponentMatch(for: text)
+        }
+
+        // RELATIVE +/-
+        if incPhrases.contains(where: { lowercased.contains($0) }),
+           let pct = extractPercent(lowercased) {
+            let target = containsAllKeyword(lowercased) ? "all" : (targetNameFromFreeText(lowercased) ?? "all")
+            lastCommand = VoiceCommand(type: .scaleRelative(percent: +pct),
+                                       componentName: target)
+            resetAfterCommand()
+            return
+        }
+
+        if decPhrases.contains(where: { lowercased.contains($0) }),
+           let pct = extractPercent(lowercased) {
+            let target = containsAllKeyword(lowercased) ? "all" : (targetNameFromFreeText(lowercased) ?? "all")
+            lastCommand = VoiceCommand(type: .scaleRelative(percent: -pct),
+                                       componentName: target)
+            resetAfterCommand()
+            return
+        }
+
+        // ABSOLUTE set
+        if setPhrases.contains(where: { lowercased.contains($0) }),
+           let pct = extractPercent(lowercased) {
+            let target = containsAllKeyword(lowercased) ? "all" : (targetNameFromFreeText(lowercased) ?? "all")
+            lastCommand = VoiceCommand(type: .scaleAbsolute(percent: pct),
+                                       componentName: target)
+            resetAfterCommand()
+            return
+        }
+        
         // METHOD 2: Single letter commands (B for Bone, S for Skin, etc.)
         let letterCommands: [String: String] = [
             "b": "Bone",
@@ -472,6 +524,21 @@ class VoiceCommandManager: ObservableObject {
                 }
             }
         }
+    }
+    
+    private func extractPercent(_ text: String) -> Float? {
+        let pattern = #"(\d+(\.\d+)?)\s*%?"#
+        guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else { return nil }
+        let range = NSRange(text.startIndex..., in: text)
+        if let match = regex.firstMatch(in: text, options: [], range: range),
+           let r1 = Range(match.range(at: 1), in: text) {
+            return Float(text[r1])
+        }
+        return nil
+    }
+    
+    private func containsAllKeyword(_ text: String) -> Bool {
+        ["all", "everything", "all components", "all parts"].contains { text.contains($0) }
     }
 }
 

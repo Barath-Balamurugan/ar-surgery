@@ -223,36 +223,68 @@ class USDZModelManager: ObservableObject {
     
     func handleCommand(_ command: VoiceCommandManager.VoiceCommand) {
         guard let componentName = command.componentName else { return }
-        
+
         print("\n🎤 Handling command: \(command.type) for '\(componentName)'")
-        
-        if componentName == "all" {
-            // Handle all components
-//            print("Applying to all \(components.count) components")
-            switch command.type {
-            case .enable, .show:
-                components.keys.forEach { enableComponent(named: $0) }
-            case .disable, .hide:
-                components.keys.forEach { disableComponent(named: $0) }
-            case .toggle:
-                components.keys.forEach { toggleComponent(named: $0) }
-            }
-        } else {
-            // Handle specific component
-            if components[componentName] != nil {
-//                print("✅ Found component '\(componentName)'")
-                switch command.type {
-                case .enable, .show:
-                    enableComponent(named: componentName)
-                case .disable, .hide:
-                    disableComponent(named: componentName)
-                case .toggle:
-                    toggleComponent(named: componentName)
-                }
-            } else {
-                print("❌ Component '\(componentName)' not found!")
-//                print("Available components: \(components.keys.sorted())")
-            }
+
+        // Helper to apply to one or many
+        func applyToAll(_ block: (_ name: String) -> Void) {
+            components.keys.forEach { block($0) }
         }
+        func apply(to name: String, _ block: (_ name: String) -> Void) {
+            if name == "all" { applyToAll(block) } else { block(name) }
+        }
+
+        switch command.type {
+        case .enable, .show:
+            apply(to: componentName) { enableComponent(named: $0) }
+        case .disable, .hide:
+            apply(to: componentName) { disableComponent(named: $0) }
+        case .toggle:
+            apply(to: componentName) { toggleComponent(named: $0) }
+
+        case .scaleRelative(let percent):
+            apply(to: componentName) { scaleComponentRelative(named: $0, percent: percent) }
+
+        case .scaleAbsolute(let percent):
+            apply(to: componentName) { setComponentScaleAbsolute(named: $0, percent: percent) }
+
+        case .scaleReset:
+            apply(to: componentName) { resetComponentScale(named: $0) }
+        }
+    }
+    
+    // Clamp to avoid disappearing or exploding
+    private func clamped(_ v: Float, min: Float = 0.05, max: Float = 5.0) -> Float { Swift.max(min, Swift.min(max, v)) }
+
+    // Multiply current scale by (1 ± p/100)
+    func scaleComponentRelative(named name: String, percent: Float) {
+        guard let comp = components[name] else { return }
+        let factor = 1.0 + (percent / 100.0)
+        var s = comp.entity.scale
+        s.x = clamped(s.x * factor)
+        s.y = clamped(s.y * factor)
+        s.z = clamped(s.z * factor)
+        comp.entity.isEnabled = true
+        comp.entity.scale = s
+        components[name]?.isEnabled = true
+    }
+
+    // Set scale to pct% of the original scale 
+    func setComponentScaleAbsolute(named name: String, percent: Float) {
+        guard let comp = components[name] else { return }
+        let f = clamped(percent / 100.0)
+        var s = comp.originalTransform.scale
+        s.x *= f; s.y *= f; s.z *= f
+        comp.entity.isEnabled = true
+        comp.entity.scale = s
+        components[name]?.isEnabled = true
+    }
+
+    // Reset to original
+    func resetComponentScale(named name: String) {
+        guard let comp = components[name] else { return }
+        comp.entity.isEnabled = true
+        comp.entity.transform = comp.originalTransform
+        components[name]?.isEnabled = true
     }
 }
